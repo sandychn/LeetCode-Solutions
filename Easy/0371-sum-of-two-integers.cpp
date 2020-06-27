@@ -4,7 +4,7 @@ public:
         while (b) {
             unsigned carry = a & b;
             carry <<= 1;
-            a = a ^ b;
+            a ^= b;
             b = carry;
         }
         return a;
