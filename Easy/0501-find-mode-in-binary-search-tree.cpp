@@ -8,42 +8,46 @@
  * };
  */
 class Solution {
-private:
-    vector<int> numbers;
-    int count;
-    int currentNumber;
-    int currentCount;
-
 public:
     vector<int> findMode(TreeNode* root) {
-        numbers.clear();
-        count = currentCount = 0;
-        solve(root);
-        return numbers;
+        init();
+        traverse(root);
+        return res;
     }
 
-    void solve(TreeNode* root) {
-        if (root == nullptr) return;
+private:
+    vector<int> res;
+    int maxOccurrence;
+    int currentValue;
+    int currentOccurrence;
 
-        solve(root->left);
-
-        if (root->val == currentNumber) {
-            ++currentCount;
-        } else {
-            currentNumber = root->val, currentCount = 1;
-        }
-        updateAnswer(root->val);
-
-        solve(root->right);
+    void init() {
+        res.clear();
+        maxOccurrence = 0;
+        currentOccurrence = 0;
     }
+    
+    void traverse(TreeNode* node) {
+        if (!node) return;
 
-    inline void updateAnswer(int val) {
-        if (currentCount > count) {
-            numbers.clear();
-            numbers.push_back(val);
-            count = currentCount;
-        } else if (currentCount == count) {
-            numbers.push_back(val);
+        traverse(node->left);
+
+        int value = node->val;
+        if (currentOccurrence == 0 || currentValue != value) {
+            currentValue = value;
+            currentOccurrence = 1;
+        } else {  // currentValue == value
+            ++currentOccurrence;
         }
+        
+        if (currentOccurrence == maxOccurrence) {
+            res.push_back(currentValue);
+        } else if (currentOccurrence > maxOccurrence) {
+            maxOccurrence = currentOccurrence;
+            res.clear();
+            res.push_back(currentValue);
+        }
+
+        traverse(node->right);
     }
 };
