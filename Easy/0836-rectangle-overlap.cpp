@@ -1,10 +1,25 @@
 class Solution {
 public:
     bool isRectangleOverlap(vector<int>& rec1, vector<int>& rec2) {
-        assert(rec1.size() == 4 && rec2.size() == 4);
-        int x1 = rec1[0], y1 = rec1[1], x2 = rec1[2], y2 = rec1[3];
-        int x3 = rec2[0], y3 = rec2[1], x4 = rec2[2], y4 = rec2[3];
-        // return !(x2 <= x3 || x4 <= x1 || y2 <= y3 || y4 <= y1);
-        return x2 > x3 && x4 > x1 && y2 > y3 && y4 > y1;
+        bool res1 = solve1(rec1, rec2);
+        bool res2 = solve2(rec1, rec2);
+        assert(res1 == res2);
+        return res1;
+    }
+
+    bool solve1(vector<int>& rec1, vector<int>& rec2) {
+        int minX = max(rec1[0], rec2[0]);
+        int minY = max(rec1[1], rec2[1]);
+        int maxX = min(rec1[2], rec2[2]);
+        int maxY = min(rec1[3], rec2[3]);
+        // 交集矩形为 { (minX, minY), (maxX, maxY) }
+
+        return minX < maxX && minY < maxY;
+    }
+
+    bool solve2(vector<int>& rec1, vector<int>& rec2) {
+        if (rec1[0] == rec1[2] || rec1[1] == rec1[3]) return false;
+        if (rec2[0] == rec2[2] || rec2[1] == rec2[3]) return false;
+        return !(rec1[2] <= rec2[0] || rec2[2] <= rec1[0] || rec1[3] <= rec2[1] || rec2[3] <= rec1[1]);
     }
 };
