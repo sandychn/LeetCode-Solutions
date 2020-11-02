@@ -4,9 +4,10 @@ public:
         unordered_set<int> st(nums1.begin(), nums1.end());
         vector<int> res;
         for (int num : nums2) {
-            if (st.count(num)) {
+            auto it = st.find(num);
+            if (it != st.end()) {
+                st.erase(it);
                 res.push_back(num);
-                st.erase(num); // each element in `res` should be unqique
             }
         }
         return res;
