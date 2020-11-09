@@ -13,3 +13,9 @@ public:
         reverse(nums.begin() + i + 1, nums.end());
     }
 };
+
+
+// nums[i] < nums[i+1]
+// nums[i+1] >= nums[i + 2] >= ... >= nums[size-1]
+// nums[i] < nums[j]
+// nums[i] >= nums[j+1, j+2, ..., size-1]
