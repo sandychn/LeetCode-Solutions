@@ -14,7 +14,6 @@ public:
     }
 };
 
-
 // nums[i] < nums[i+1]
 // nums[i+1] >= nums[i + 2] >= ... >= nums[size-1]
 // nums[i] < nums[j]
