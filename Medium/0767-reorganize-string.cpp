@@ -2,9 +2,10 @@ class Solution {
 public:
     string reorganizeString(string S) {
         int n = S.size();
+        
+        string res(n, 0);
+        int cnt[26] = {};
 
-        vector<char> res(n);
-        vector<int> cnt(26);
         for (char ch : S) ++cnt[ch - 'a'];
         int mostCommonLetterId = max_element(begin(cnt), end(cnt)) - begin(cnt);
 
@@ -23,18 +24,19 @@ public:
                 res[i] = p + 'a';
             }
         } else {
-            for (int i = 0, p = 0; i < n; i += 2) {
+            int p = 0;
+            for (int i = 0; i < n; i += 2) {
                 while (cnt[p] == 0) ++p;
                 --cnt[p];
                 res[i] = p + 'a';
             }
-            for (int i = 1, p = 0; i < n; i += 2) {
+            for (int i = 1; i < n; i += 2) {
                 while (cnt[p] == 0) ++p;
                 --cnt[p];
                 res[i] = p + 'a';
             }
         }
 
-        return string(begin(res), end(res));
+        return res;
     }
 };
