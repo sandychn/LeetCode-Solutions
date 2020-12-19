@@ -7,7 +7,6 @@ public:
                 swap(matrix[i][j], matrix[j][n - 1 - i]);
                 swap(matrix[i][j], matrix[n - 1 - i][n - 1 - j]);
                 swap(matrix[i][j], matrix[n - 1 - j][i]);
-                // printf("%d,%d  %d,%d  %d,%d  %d,%d\n", i, j, j, n-1-i, n-1-i, n-1-j, n-1-j, i);
             }
         }
     }
