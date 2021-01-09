@@ -16,7 +16,6 @@ class Solution(object):
 
         ans = []
         start = expected = None
-        i, n = 0, len(nums)
         for val in nums:
             if val == expected:
                 expected += 1
