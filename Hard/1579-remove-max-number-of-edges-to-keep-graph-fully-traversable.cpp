@@ -5,9 +5,7 @@ public:
         parent(elementCount + 1),
         setSize(elementCount + 1, 1),
         setCount(elementCount) {
-        for (int i = 1; i <= elementCount; i++) {
-            parent[i] = i;
-        }
+        std::iota(parent.begin(), parent.end(), 0);
     }
 
     int find(int x) {
