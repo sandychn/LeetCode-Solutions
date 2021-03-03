@@ -27,7 +27,7 @@ class FooBar:
             self.fooLock.release()
 
 
-def local_test():
+def localTest():
     n = 5
     fooBar = FooBar(n)
     threading.Thread(target=FooBar.foo, args=(fooBar, lambda: print("foo", end=""))).start()
@@ -35,4 +35,4 @@ def local_test():
 
 
 if __name__ == "__main__":
-    local_test()
+    localTest()

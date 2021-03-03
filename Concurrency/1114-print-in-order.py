@@ -30,7 +30,7 @@ class Foo:
             printThird()
 
 
-def local_test():
+def localTest():
     foo = Foo()
     threads = [
         threading.Thread(target=Foo.first, args=(foo, lambda: print("first", end=""))),
@@ -42,4 +42,4 @@ def local_test():
 
 
 if __name__ == "__main__":
-    local_test()
+    localTest()
