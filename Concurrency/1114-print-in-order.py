@@ -39,6 +39,8 @@ def localTest():
     ]
     for thread_id in (1, 3, 2):
         threads[thread_id - 1].start()
+    for thread in threads:
+        thread.join()
 
 
 if __name__ == "__main__":

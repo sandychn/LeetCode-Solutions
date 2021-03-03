@@ -30,8 +30,14 @@ class FooBar:
 def localTest():
     n = 5
     fooBar = FooBar(n)
-    threading.Thread(target=FooBar.foo, args=(fooBar, lambda: print("foo", end=""))).start()
-    threading.Thread(target=FooBar.bar, args=(fooBar, lambda: print("bar", end=""))).start()
+    threads = [
+        threading.Thread(target=FooBar.foo, args=(fooBar, lambda: print("foo", end=""))),
+        threading.Thread(target=FooBar.bar, args=(fooBar, lambda: print("bar", end="")))
+    ]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join()
 
 
 if __name__ == "__main__":
