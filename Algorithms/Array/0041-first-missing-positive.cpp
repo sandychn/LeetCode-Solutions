@@ -1,3 +1,11 @@
+#include <vector>
+#include <climits>
+#include <cstdlib>
+#include <algorithm>
+
+using std::vector;
+using std::swap;
+
 class Solution {
 public:
     int firstMissingPositive(vector<int>& nums) {

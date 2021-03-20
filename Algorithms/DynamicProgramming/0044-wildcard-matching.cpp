@@ -1,3 +1,11 @@
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using std::string;
+using std::vector;
+using std::fill_n;
+
 class Solution { // Space optimized
 public:
     bool isMatch(string s, string p) {

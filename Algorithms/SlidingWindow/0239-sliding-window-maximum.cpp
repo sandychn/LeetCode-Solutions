@@ -1,3 +1,11 @@
+#include <vector>
+#include <deque>
+#include <utility>
+
+using std::vector;
+using std::deque;
+using std::pair;
+
 class Solution {
 public:
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
