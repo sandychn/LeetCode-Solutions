@@ -4,5 +4,5 @@ class Solution:
             return False
         for prime in (2, 3, 5):
             while n % prime == 0:
-                n /= prime
+                n //= prime
         return n == 1
