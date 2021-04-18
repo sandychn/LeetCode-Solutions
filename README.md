@@ -17,9 +17,11 @@
 | LinkedList                | 链表         |
 | Math                      | 数学         |
 | MinimumSpanningTree       | 最小生成树   |
+| Recursion                 | 递归         |
 | SlidingWindow             | 滑动窗口     |
 | Stack                     | 栈           |
 | String                    | 字符串       |
 | Tree                      | 树           |
 | Trie                      | 字典树       |
+| TwoPointers               | 双指针       |
 | UnionFind                 | 并查集       |
