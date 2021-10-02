@@ -16,8 +16,8 @@ public:
             ++degree[y].m_inDegree;
         }
 
-        for (const auto& e : degree) {
-            if (e.second.m_outDegree == 0) return e.first;
+        for (const auto& [city, degrees] : degree) {
+            if (degrees.m_outDegree == 0) return city;
         }
 
         throw std::invalid_argument("answer does not exist");
